@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font-awesome -->
+    <script src="https://kit.fontawesome.com/c90bd6259d.js" crossorigin="anonymous"></script>
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,7 +70,8 @@
                 border-radius: 5px;
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             }
-            .container{
+
+            .container {
                 max-width: 500px;
                 margin: 0 auto;
                 background-color: black;
@@ -78,6 +81,7 @@
                 box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
             }
+
             .container.active,
             .container:hover,
             .container:focus {
@@ -176,194 +180,209 @@
                 border: 1px solid #ccc;
                 font-size: 16px;
             }
+
+            footer {
+                margin-top: auto;
+
+            }
+
+            p {
+                color: white;
+                text-align: center;
+                margin: auto;
+                margin-bottom: 0;
+            }
         </style>
 
     </head>
 
 <body>
     <h1 class="boujee-text">SGPA Calculator</h1>
-<section class="container">
-    <form  id="gradeForm">
-        <!-- subject 1 c++ 4credits -->
-        <div class="subject">
-            <label for="subject1">Object Oriented Programming Using C++ (4 Credits):</label>
-            <select id="subject1" name="subject1">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject 2 wt 1credits -->
-        <div class="subject">
-            <label for="subject2">Workshop Technology (1 Credit):</label>
-            <select id="subject2" name="subject2">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject 3 ip 1credits -->
-        <div class="subject">
-            <label for="subject3">Independent Project (1 Credit):</label>
-            <select id="subject3" name="subject3">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject 4 de 4credits -->
-        <div class="subject">
-            <label for="subject4">Digital Electronics (4 Credits):</label>
-            <select id="subject4" name="subject4">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject 5 dt-2 2credits -->
-        <div class="subject">
-            <label for="subject5">Disruptive Technologies (2 Credits):</label>
-            <select id="subject5" name="subject5">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject 6 gp 1credits -->
-        <div class="subject">
-            <label for="subject6">General Proficiency (1 Credit):</label>
-            <select id="subject6" name="subject6">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject 7 maths 4credits -->
-        <div class="subject">
-            <label for="subject7">Mathematics-2 (4 Credits):</label>
-            <select id="subject7" name="subject7">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject 8 bio 3credits -->
-        <div class="subject">
-            <label for="subject8">Biology (3 Credits):</label>
-            <select id="subject8" name="subject8">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject 9 aptitude 2credits -->
-        <div class="subject">
-            <label for="subject9">Aptitude-1 (2 Credits):</label>
-            <select id="subject9" name="subject9">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject 10 ipr 1credits -->
-        <div class="subject">
-            <label for="subject10">Academic Writing Skills (1 Credit):</label>
-            <select id="subject10" name="subject10">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
-        <!-- subject ethics ipr 2credits -->
-        <div class="subject">
-            <label for="subject11">Ethics and Life Skills (2 Credit):</label>
-            <select id="subject11" name="subject11">
-                <option value="10">A+</option>
-                <option value="9">A</option>
-                <option value="8">B+</option>
-                <option value="7">B</option>
-                <option value="6">C+</option>
-                <option value="5">C</option>
-                <option value="4">D</option>
-                <option value="3">E</option>
-                <option value="0">F</option>
-            </select>
-        </div>
+    <section class="container">
+        <form id="gradeForm">
+            <!-- subject 1 c++ 4credits -->
+            <div class="subject">
+                <label for="subject1">Object Oriented Programming Using C++ (4 Credits):</label>
+                <select id="subject1" name="subject1">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject 2 wt 1credits -->
+            <div class="subject">
+                <label for="subject2">Workshop Technology (1 Credit):</label>
+                <select id="subject2" name="subject2">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject 3 ip 1credits -->
+            <div class="subject">
+                <label for="subject3">Independent Project (1 Credit):</label>
+                <select id="subject3" name="subject3">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject 4 de 4credits -->
+            <div class="subject">
+                <label for="subject4">Digital Electronics (4 Credits):</label>
+                <select id="subject4" name="subject4">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject 5 dt-2 2credits -->
+            <div class="subject">
+                <label for="subject5">Disruptive Technologies (2 Credits):</label>
+                <select id="subject5" name="subject5">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject 6 gp 1credits -->
+            <div class="subject">
+                <label for="subject6">General Proficiency (1 Credit):</label>
+                <select id="subject6" name="subject6">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject 7 maths 4credits -->
+            <div class="subject">
+                <label for="subject7">Mathematics-2 (4 Credits):</label>
+                <select id="subject7" name="subject7">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject 8 bio 3credits -->
+            <div class="subject">
+                <label for="subject8">Biology (3 Credits):</label>
+                <select id="subject8" name="subject8">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject 9 aptitude 2credits -->
+            <div class="subject">
+                <label for="subject9">Aptitude-1 (2 Credits):</label>
+                <select id="subject9" name="subject9">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject 10 ipr 1credits -->
+            <div class="subject">
+                <label for="subject10">Academic Writing Skills (1 Credit):</label>
+                <select id="subject10" name="subject10">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
+            <!-- subject ethics ipr 2credits -->
+            <div class="subject">
+                <label for="subject11">Ethics and Life Skills (2 Credit):</label>
+                <select id="subject11" name="subject11">
+                    <option value="10">A+</option>
+                    <option value="9">A</option>
+                    <option value="8">B+</option>
+                    <option value="7">B</option>
+                    <option value="6">C+</option>
+                    <option value="5">C</option>
+                    <option value="4">D</option>
+                    <option value="3">E</option>
+                    <option value="0">F</option>
+                </select>
+            </div>
 
-        <button type="submit" class="submit">Calculate SGPA</button>
-    </form>
-
-    <div id="result"></div>
-
-    <div id="finalCGPA">
-        <form id="finalCGPAForm">
-            <label for="previousCGPA">Previous SGPA:</label>
-            <input type="text" id="previousCGPA" name="previousCGPA" required="">
-
-            <button type="submit" class="submit">Calculate Final CGPA</button>
+            <button type="submit" class="submit">Calculate SGPA</button>
         </form>
-    </div>
-</section>
+
+        <div id="result"></div>
+
+        <div id="finalCGPA">
+            <form id="finalCGPAForm">
+                <label for="previousCGPA">Previous SGPA:</label>
+                <input type="text" id="previousCGPA" name="previousCGPA" required="">
+
+                <button type="submit" class="submit">Calculate Final CGPA</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p class="footer-p">Made with <i class="fa-solid fa-heart fa-beat" style="color: #f20202;"></i> by Niharika</p>
+    </footer>
 
     <script>
         document.getElementById("gradeForm").addEventListener("submit", function (event) {
