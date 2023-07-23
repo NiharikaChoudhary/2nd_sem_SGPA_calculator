@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;900;1000&display=swap"
+        rel="stylesheet">
+
+    <head>
+        <title>SGPA Calculator for 2nd Semester</title>
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: black;
+                margin: 0;
+                padding: 20px;
+                background-color: black;
+                /* background: linear-gradient(90deg, rgba(93, 99, 204, 1) 0%, rgba(245, 240, 242, 1) 100%, rgba(0, 212, 255, 1) 100%); */
+                font-family: nunito, sans-serif;
+
+            }
+
+            /* text -animation */
+            .boujee-text {
+                --bg-size: 400%;
+                --color-one: #ff3838;
+                --color-two: hsl(56, 99%, 56%);
+
+                background: linear-gradient(90deg,
+                        var(--color-one),
+                        var(--color-two),
+                        var(--color-one)) 0 0 / var(--bg-size) 100%;
+                color: transparent;
+                background-clip: text;
+                -webkit-background-clip: text;
+                animation: move-bg 8s infinite linear;
+            }
+
+            @media (prefers-reduced-motion: no-preference) {
+                .boujee-text {
+                    animation: move-bg 8s linear infinite;
+                }
+
+                @keyframes move-bg {
+                    to {
+                        background-position: var(--bg-size) 0;
+                    }
+                }
+            }
+
+            h1 {
+                text-align: center;
+                margin-bottom: 30px;
+                color: white;
+                font-weight: 800;
+            }
+
+            form {
+                max-width: 400px;
+                margin: 0 auto;
+                background-color: black;
+                color: white;
+                padding: 30px;
+                border-radius: 5px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            .container{
+                max-width: 500px;
+                margin: 0 auto;
+                background-color: black;
+                color: white;
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+            }
+            .container.active,
+            .container:hover,
+            .container:focus {
+                /* -webkit-box-shadow: 0 6px 50px 8px rgba(21, 131, 233, 0.15);
+    box-shadow: 0 6px 50px 8px rgba(21, 131, 233, 0.15); */
+                -webkit-box-shadow: 0 6px 50px 8px rgba(253, 70, 50, 0.15);
+                box-shadow: 0 6px 50px 8px rgba(226, 233, 21, 0.26);
+
+            }
+
+
+            .subject {
+                margin-bottom: 20px;
+            }
+
+            label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            select {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+                background-color: #f2f2f2;
+                color: #333;
+            }
+
+            button {
+                display: block;
+                width: 100%;
+                padding: 10px;
+                margin-top: 20px;
+                border: none;
+                color: #fff;
+                font-size: 18px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            button.grade-a {
+                background-color: #00a0a0;
+            }
+
+            button.grade-b {
+                background-color: #f44336;
+            }
+
+            button.grade-c {
+                background-color: #ffc107;
+            }
+
+            button.grade-d {
+                background-color: #795548;
+            }
+
+            button.grade-f {
+                background-color: #9e9e9e;
+            }
+
+            button:hover {
+                filter: brightness(1.1);
+            }
+
+            #result {
+                text-align: center;
+                font-weight: bold;
+                font-size: 18px;
+                margin-top: 20px;
+                color: white;
+            }
+
+            .submit {
+                background-color: orangered;
+            }
+
+            #finalCGPA {
+                display: none;
+                margin-top: 20px;
+            }
+
+            #finalCGPA label {
+                display: block;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            #finalCGPA input {
+                width: 95%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                font-size: 16px;
+            }
+        </style>
+
+    </head>
+
+<body>
+    <h1 class="boujee-text">SGPA Calculator</h1>
+<section class="container">
+    <form  id="gradeForm">
+        <!-- subject 1 c++ 4credits -->
+        <div class="subject">
+            <label for="subject1">Object Oriented Programming Using C++ (4 Credits):</label>
+            <select id="subject1" name="subject1">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject 2 wt 1credits -->
+        <div class="subject">
+            <label for="subject2">Workshop Technology (1 Credit):</label>
+            <select id="subject2" name="subject2">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject 3 ip 1credits -->
+        <div class="subject">
+            <label for="subject3">Independent Project (1 Credit):</label>
+            <select id="subject3" name="subject3">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject 4 de 4credits -->
+        <div class="subject">
+            <label for="subject4">Digital Electronics (4 Credits):</label>
+            <select id="subject4" name="subject4">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject 5 dt-2 2credits -->
+        <div class="subject">
+            <label for="subject5">Disruptive Technologies (2 Credits):</label>
+            <select id="subject5" name="subject5">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject 6 gp 1credits -->
+        <div class="subject">
+            <label for="subject6">General Proficiency (1 Credit):</label>
+            <select id="subject6" name="subject6">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject 7 maths 4credits -->
+        <div class="subject">
+            <label for="subject7">Mathematics-2 (4 Credits):</label>
+            <select id="subject7" name="subject7">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject 8 bio 3credits -->
+        <div class="subject">
+            <label for="subject8">Biology (3 Credits):</label>
+            <select id="subject8" name="subject8">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject 9 aptitude 2credits -->
+        <div class="subject">
+            <label for="subject9">Aptitude-1 (2 Credits):</label>
+            <select id="subject9" name="subject9">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject 10 ipr 1credits -->
+        <div class="subject">
+            <label for="subject10">Academic Writing Skills (1 Credit):</label>
+            <select id="subject10" name="subject10">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+        <!-- subject ethics ipr 2credits -->
+        <div class="subject">
+            <label for="subject11">Ethics and Life Skills (2 Credit):</label>
+            <select id="subject11" name="subject11">
+                <option value="10">A+</option>
+                <option value="9">A</option>
+                <option value="8">B+</option>
+                <option value="7">B</option>
+                <option value="6">C+</option>
+                <option value="5">C</option>
+                <option value="4">D</option>
+                <option value="3">E</option>
+                <option value="0">F</option>
+            </select>
+        </div>
+
+        <button type="submit" class="submit">Calculate SGPA</button>
+    </form>
+
+    <div id="result"></div>
+
+    <div id="finalCGPA">
+        <form id="finalCGPAForm">
+            <label for="previousCGPA">Previous SGPA:</label>
+            <input type="text" id="previousCGPA" name="previousCGPA" required="">
+
+            <button type="submit" class="submit">Calculate Final CGPA</button>
+        </form>
+    </div>
+</section>
+
+    <script>
+        document.getElementById("gradeForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            calculateSGPA();
+        });
+
+        function calculateSGPA() {
+            const subject1 = parseFloat(document.getElementById("subject1").value);
+            const subject2 = parseFloat(document.getElementById("subject2").value);
+            const subject3 = parseFloat(document.getElementById("subject3").value);
+            const subject4 = parseFloat(document.getElementById("subject4").value);
+            const subject5 = parseFloat(document.getElementById("subject5").value);
+            const subject6 = parseFloat(document.getElementById("subject6").value);
+            const subject7 = parseFloat(document.getElementById("subject7").value);
+            const subject8 = parseFloat(document.getElementById("subject8").value);
+            const subject9 = parseFloat(document.getElementById("subject9").value);
+            const subject10 = parseFloat(document.getElementById("subject10").value);
+            const subject11 = parseFloat(document.getElementById("subject11").value);
+
+            const totalCredits = 4 + 1 + 1 + 4 + 2 + 1 + 4 + 3 + 2 + 1 + 2;
+            const totalGradePoints = (subject1 * 4) + (subject2 * 1) + (subject3 * 1) + (subject4 * 4) + (subject5 * 2) + (subject6 * 1) + (subject7 * 4) + (subject8 * 3) + (subject9 * 2) + (subject10 * 1) + (subject11 * 2);
+
+            const sgpa = totalGradePoints / totalCredits;
+
+            document.getElementById("result").innerHTML = "Your SGPA: " + sgpa.toFixed(2);
+
+            // Show final CGPA form
+            document.getElementById("finalCGPA").style.display = "block";
+        }
+
+        document.getElementById("finalCGPAForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            calculateFinalCGPA();
+        });
+
+        function calculateFinalCGPA() {
+            const previousCGPA = parseFloat(document.getElementById("previousCGPA").value);
+            const sgpa = parseFloat(document.getElementById("result").textContent.split(": ")[1]);
+
+            const finalCGPA = (previousCGPA + sgpa) / 2;
+
+            document.getElementById("result").innerHTML += "<br>Your Final CGPA: " + finalCGPA.toFixed(2);
+        }
+    </script>
+
+
+    <div id="crx-root">
+        <div class="Gl1LytS7IKm0kbznepy9">
+            <div></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>
