@@ -422,10 +422,14 @@
         function calculateFinalCGPA() {
             const previousCGPA = parseFloat(document.getElementById("previousCGPA").value);
             const sgpa = parseFloat(document.getElementById("result").textContent.split(": ")[1]);
+            if (previousCGPA <= 10) {
+                const finalCGPA = (previousCGPA + sgpa) / 2;
 
-            const finalCGPA = (previousCGPA + sgpa) / 2;
+                document.getElementById("result").innerHTML += "<br>Your Final CGPA: " + finalCGPA.toFixed(2);
+            } else {
+                alert("Enter a valid Previous SGPA")
+            }
 
-            document.getElementById("result").innerHTML += "<br>Your Final CGPA: " + finalCGPA.toFixed(2);
         }
     </script>
 
@@ -441,14 +445,14 @@
         });
     </script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7MJ17VMRMZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7MJ17VMRMZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-7MJ17VMRMZ');
-</script>
+        gtag('config', 'G-7MJ17VMRMZ');
+    </script>
 </body>
 
 </html>
